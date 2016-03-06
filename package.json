@@ -1,5 +1,5 @@
 {
-  "name": "schema",
+  "name": "@the-grid/schema",
   "version": "0.1.0",
   "description": "The Grid data schema",
   "main": "index.js",
