@@ -1,6 +1,6 @@
 {
   "name": "@the-grid/schema",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The Grid data schema",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,11 @@
   },
   "dependencies": {
     "coffee-script": "^1.10.0"
+  },
+  "browserify": {
+    "name": "schema",
+    "transform": [
+      "coffeeify"
+    ]
   }
 }
