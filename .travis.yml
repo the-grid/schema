@@ -11,3 +11,11 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: HcLKrKo+e5qUgiLn/YcVDw3RNHr8quypzR4YIg6xFIL+nhksCsY2ZRRdJpspnsz9HCFG6oM00b7bU7VdczpeCGS0X2jIsXrSEAQm1mauPYb7wFTOVNzp4XzlmccCFs7ih0URlkdHE+CFHoJJymtRP/kRJOQdoAiZZvvB6kmbcCnS0e/OvayWvT74Ow4vx0c51WEXgWyKlS9q4VV79/dL5luupaU7I9+GxetoM2I708Ag8oPdziZ2I99jF52zO1zra4CnKFYaA1J+qVwtcDo/3PJt95Kz/funsVWPHIZbRHK044m2iGTmggENj4cWGYZf+E7yL829wir/YJVNZMYjk1pDIwJUT+JPBNM9VNEzWl4+K+dbCsX/ru7154qkwrilWm+tEEfj8FpHpPsTM629KRbxQmM/pn387KgSgwU+udboqsCq0m330gOoFrDqiZTu8cY2oJLvJBEQOkN05XI2GB1WLzEDmrPF8pH6BYkJOt6Uo33IV4+mIkSG07bTH1hhYimqcb3jY5XPJ+YfX2nlIb+PNrsZ1SXww9icpTfL2yvHX4T2W6QgsJEQWU5dpPW2ClppKHUeSrB52SDGxkhZI6sGHFvIRX1CxIzcFl7Jpa6vLIMPKiBkGMh6cjwSuWCcH8rEgePD8Zb7k5544bJVkiNosQwKRQpQncILOjsVqF8=
+  on:
+    tags: true
+    repo: the-grid/schema
