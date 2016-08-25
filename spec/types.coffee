@@ -32,6 +32,7 @@ describe 'Type handling', ->
       chai.expect(schema.isSubtypeOf('article', 'media')).to.equal true
       chai.expect(schema.isSubtypeOf('location', 'media')).to.equal true
       chai.expect(schema.isSubtypeOf('quote', 'media')).to.equal true
+      chai.expect(schema.isSubtypeOf('interactive', 'media')).to.equal true
     it 'should recognize any data element as data', ->
       chai.expect(schema.isSubtypeOf('list', 'data')).to.equal true
       chai.expect(schema.isSubtypeOf('table', 'data')).to.equal true
