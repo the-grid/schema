@@ -42,3 +42,13 @@ describe 'Type handling', ->
       header =
         type: 'h1'
       chai.expect(schema.isSubtypeOf(header, 'textual')).to.equal true
+
+  describe 'checking type validity', ->
+    it 'should fail on random type', ->
+      chai.expect(schema.isValidType('grammarly-btn')).to.equal false
+    it 'should work on accepted type', ->
+      chai.expect(schema.isValidType('h1')).to.equal true
+    it 'should work on placeholder type', ->
+      chai.expect(schema.isValidType('placeholder')).to.equal true
+    it 'should fail on placeholder type in solving mode', ->
+      chai.expect(schema.isValidType('placeholder', true)).to.equal false

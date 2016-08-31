@@ -1,6 +1,43 @@
+validTypes = [
+  'headline'
+  'h1'
+  'h2'
+  'h3'
+  'h4'
+  'h5'
+  'h6'
+  'text'
+  'list'
+  'table'
+  'code'
+  'image'
+  'video'
+  'audio'
+  'article'
+  'quote'
+  'location'
+  'cta'
+  'interactive'
+  'placeholder'
+  'unknown'
+]
+
+isValidType = (type, solving = false) ->
+  if typeof type is 'object'
+    type = type.type
+  return false unless typeof type is 'string'
+  return false if validTypes.indexOf(type) is -1
+  return false if solving and type in [
+    'unknown'
+    'placeholder'
+  ]
+  true
+
 isSubtypeOf = (type, checkType) ->
   if typeof type is 'object'
     type = type.type
+
+  return false unless isValidType type
 
   # TODO: Parse from The Grid JSON Schema
   return true if checkType is 'block'
@@ -89,6 +126,7 @@ normalizeMediaBlock = (block, item) ->
   normalizeMetadata block, item
 
 module.exports =
+  isValidType: isValidType
   isSubtypeOf: isSubtypeOf
   normalizeBlock: (block, item) ->
     if isSubtypeOf block.type, 'media'
