@@ -8,6 +8,7 @@ describe 'Type handling', ->
       chai.expect(schema.isSubtypeOf('h1', 'block')).to.equal true
       chai.expect(schema.isSubtypeOf('text', 'block')).to.equal true
       chai.expect(schema.isSubtypeOf('unknown', 'block')).to.equal true
+      chai.expect(schema.isSubtypeOf('hr', 'block')).to.equal true
     it 'should recognize any headline level anything as a headline', ->
       chai.expect(schema.isSubtypeOf('h1', 'headline')).to.equal true
       chai.expect(schema.isSubtypeOf('h2', 'headline')).to.equal true
@@ -25,6 +26,7 @@ describe 'Type handling', ->
     it 'should not recognize non-text elements as a textual', ->
       chai.expect(schema.isSubtypeOf('image', 'textual')).to.equal false
       chai.expect(schema.isSubtypeOf('video', 'textual')).to.equal false
+      chai.expect(schema.isSubtypeOf('hr', 'textual')).to.equal false
     it 'should recognize any media element as media', ->
       chai.expect(schema.isSubtypeOf('image', 'media')).to.equal true
       chai.expect(schema.isSubtypeOf('video', 'media')).to.equal true
@@ -38,6 +40,8 @@ describe 'Type handling', ->
       chai.expect(schema.isSubtypeOf('table', 'data')).to.equal true
     it 'should recognize CtA elements as cta', ->
       chai.expect(schema.isSubtypeOf('cta', 'cta')).to.equal true
+    it 'should recognize hr elements as hr', ->
+      chai.expect(schema.isSubtypeOf('hr', 'hr')).to.equal true
     it 'should support also block objects', ->
       header =
         type: 'h1'
