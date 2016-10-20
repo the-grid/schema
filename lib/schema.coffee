@@ -18,6 +18,7 @@ validTypes = [
   'location'
   'cta'
   'interactive'
+  'hr'
   'placeholder'
   'unknown'
 ]
