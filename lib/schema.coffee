@@ -8,6 +8,8 @@ validTypes = [
   'h6'
   'text'
   'list'
+  'ul'
+  'ol'
   'table'
   'code'
   'image'
@@ -51,7 +53,10 @@ isSubtypeOf = (type, checkType) ->
   if checkType is 'headline'
     return type in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
   if checkType is 'data'
-    return type in ['list', 'table']
+    return true if type is 'table'
+    return isSubtypeOf type, 'list'
+  if checkType is 'list'
+    return type in ['ul', 'ol']
   false
 
 normalizeMetadata = (block, item) ->
