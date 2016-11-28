@@ -38,6 +38,8 @@ describe 'Type handling', ->
     it 'should recognize any data element as data', ->
       chai.expect(schema.isSubtypeOf('list', 'data')).to.equal true
       chai.expect(schema.isSubtypeOf('table', 'data')).to.equal true
+      chai.expect(schema.isSubtypeOf('ol', 'data')).to.equal true
+      chai.expect(schema.isSubtypeOf('ul', 'data')).to.equal true
     it 'should recognize CtA elements as cta', ->
       chai.expect(schema.isSubtypeOf('cta', 'cta')).to.equal true
     it 'should recognize hr elements as hr', ->
@@ -52,6 +54,8 @@ describe 'Type handling', ->
       chai.expect(schema.isValidType('grammarly-btn')).to.equal false
     it 'should work on accepted type', ->
       chai.expect(schema.isValidType('h1')).to.equal true
+    it 'should work on accepted type in solving mode', ->
+      chai.expect(schema.isValidType('h1', true)).to.equal true
     it 'should work on placeholder type', ->
       chai.expect(schema.isValidType('placeholder')).to.equal true
     it 'should fail on placeholder type in solving mode', ->
